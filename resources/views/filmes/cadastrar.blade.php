@@ -5,11 +5,11 @@
 @section('titulo', 'Cadastrar | Filmes')
 
 @section('conteudo')
-    <p>Preencha o formuliário</p>
+    <p>Preencha o formulário: </p>
 
     @if($errors->any())
         <div>
-            <h3>Deu ruim</h3>
+            <h3>Você preencheu algum campo incorretamente: </h3>
             @foreach($errors->all() as $error)
                 <p>{{ $error }}</p>
             @endforeach
