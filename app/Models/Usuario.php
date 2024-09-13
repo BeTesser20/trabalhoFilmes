@@ -30,6 +30,9 @@ class Usuario extends Model implements Authenticatable
     function getAuthPassword() {
         return $this->password;
     }
+    function getAuthPasswordName() {
+        return 'password';
+    }
     function getRememberToken() {
         
     }

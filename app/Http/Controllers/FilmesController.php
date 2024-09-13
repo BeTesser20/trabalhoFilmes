@@ -22,7 +22,7 @@ class FilmesController extends Controller
     public function gravar(Request $form) {
         // // dd($form);
         // echo $form->nome;
-        $img = $form->file('imagem')->store('filmes', 'imagens');
+        $img = $form->file('capa')->store('filmes', 'imagens');
         
         // dd($form);
         $dados = $form->validate([
@@ -34,9 +34,9 @@ class FilmesController extends Controller
             'link' => 'required|min:3'
         ]);
 
-        $dados['imagem'] = $img;
+        $dados['capa'] = $img;
 
-        Filmes::create($dados);
+        Filme::create($dados);
         // echo 'Tudo certo!';
         return redirect()->route('filmes');
     }
@@ -50,7 +50,7 @@ class FilmesController extends Controller
     }
 
     // efetivamente deleta no banco
-    public function deletar(Filmes $filme){
+    public function deletar(Filme $filme){
         $filme->delete();
         return redirect()->route('filmes');
     }

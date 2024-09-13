@@ -13,6 +13,15 @@ class FilmesSeedeer extends Seeder
      */
     public function run(): void
     {
-        
+        DB::table('filmes')->insert([
+            [
+                'nome' => 'kgdfvnjkdf',
+                'ano' => 2208,
+                'sinopse' => 'Denfn',
+                'categoria' => 'JDFHVNJKD',
+                'capa' => NULL,
+                'link' => 'https://you.tube'
+            ]
+        ]);
     }
 }
