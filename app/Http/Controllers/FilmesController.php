@@ -34,6 +34,7 @@ class FilmesController extends Controller
             'link' => 'required|min:3'
         ]);
 
+        $img = $form->file('capa')->store('filmes', 'public'); 
         $dados['capa'] = $img;
 
         Filme::create($dados);
@@ -57,7 +58,8 @@ class FilmesController extends Controller
 
 
     public function editar(Filme $filme) {
-        return view('filmes/editar', ['filme' => $filme]);
+        return view('filmes.editar', 
+        ['filme' => $filme]);
     }
 
     public function editarGravar(Request $form, Filme $filme) {
@@ -69,6 +71,11 @@ class FilmesController extends Controller
             'capa' => 'required',
             'link' => 'required'
         ]);
+
+        if ($form->hasFile('capa')) {
+            $img = $form->file('capa')->store('filmes', 'public');
+            $dados['capa'] = $img;
+        }
 
         $filme->fill($dados);
         $filme->save();

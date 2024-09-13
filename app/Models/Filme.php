@@ -12,7 +12,6 @@ class Filme extends Model
     protected $table = 'filmes';
 
     protected $fillable = [
-        'id',
         'nome',
         'sinopse',
         'ano',
